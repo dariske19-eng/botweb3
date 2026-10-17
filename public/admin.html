@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin — Drizz JadiBot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo"><div class="logo-mark">D</div> Admin Panel</div>
+    <div class="nav-links">
+      <a href="/">Laman utama</a>
+      <button class="btn btn-ghost btn-sm" id="btn-admin-out" type="button">Log keluar</button>
+    </div>
+  </nav>
+
+  <div class="layout">
+    <div class="card" id="admin-login">
+      <h2 style="margin-bottom:1rem">Login Admin</h2>
+      <div class="form-row">
+        <label>PASSWORD_ADMIN</label>
+        <input id="admin-pass" type="password" placeholder="Password admin" />
+      </div>
+      <button class="btn btn-primary" id="btn-admin-login" type="button">Masuk</button>
+      <p class="error hidden" id="admin-err"></p>
+    </div>
+
+    <div id="admin-app" class="hidden">
+      <div class="grid-2" style="margin-bottom:1.5rem">
+        <div class="card">
+          <h3 style="margin-bottom:1rem">Cipta kod claim</h3>
+          <div class="form-row">
+            <label>Tempoh (hari)</label>
+            <input id="code-days" type="number" min="1" max="365" value="30" />
+          </div>
+          <div class="form-row">
+            <label>Nota (pilihan)</label>
+            <input id="code-note" placeholder="cth: order #12" />
+          </div>
+          <button class="btn btn-primary" id="btn-create-code" type="button">Jana kod 6 digit</button>
+          <p class="ok hidden" id="code-result"></p>
+          <p class="error hidden" id="code-err"></p>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:0.5rem">Statistik</h3>
+          <p class="muted">Kod aktif / digunakan dan bilangan bot dipaparkan di bawah.</p>
+          <p style="margin-top:1rem;font-size:1.5rem;font-weight:700" id="stat-line">—</p>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:1.5rem">
+        <h3 style="margin-bottom:1rem">Senarai kod</h3>
+        <div style="overflow-x:auto">
+          <table class="table" id="codes-table">
+            <thead>
+              <tr><th>Kod</th><th>Hari</th><th>Luput</th><th>Status</th><th>Nota</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-bottom:1rem">Semua bot</h3>
+        <div style="overflow-x:auto">
+          <table class="table" id="bots-table">
+            <thead>
+              <tr><th>Nama</th><th>Owner</th><th>Status</th><th>Tamat</th><th>Enabled</th><th>Tindakan</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>

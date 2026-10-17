@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panel Bot — Drizz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo"><div class="logo-mark">D</div> Panel Bot</div>
+    <div class="nav-links">
+      <a href="/">Dashboard</a>
+      <button class="btn btn-ghost btn-sm" id="btn-out" type="button">Log keluar</button>
+    </div>
+  </nav>
+
+  <div class="layout">
+    <div class="card" style="margin-bottom:1.25rem">
+      <h2 id="bot-name">Bot</h2>
+      <p class="muted" id="bot-meta">—</p>
+      <p style="margin-top:0.5rem" id="bot-status"></p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="margin-bottom:1rem">Sambung WhatsApp</h3>
+        <div class="tabs">
+          <button class="tab active" data-mode="qr" type="button">QR Code</button>
+          <button class="tab" data-mode="pair" type="button">Pairing Code</button>
+        </div>
+        <div id="mode-qr">
+          <p class="muted">Minta sesi QR. Worker bot akan isi QR bila sedia.</p>
+          <button class="btn btn-primary" id="btn-qr" type="button" style="margin-top:0.75rem">Minta QR</button>
+          <div id="qr-area" class="hidden">
+            <div class="qr-box"><img id="qr-img" alt="QR" width="220" height="220" /></div>
+            <p class="muted">Imbas dengan WhatsApp → Linked Devices</p>
+          </div>
+        </div>
+        <div id="mode-pair" class="hidden">
+          <div class="form-row">
+            <label>Nombor (cth 62812…)</label>
+            <input id="pair-phone" placeholder="6281234567890" />
+          </div>
+          <button class="btn btn-primary" id="btn-pair" type="button">Minta pairing code</button>
+          <p class="pair-code hidden" id="pair-code">————</p>
+        </div>
+        <button class="btn btn-danger btn-sm" id="btn-stop" type="button" style="margin-top:1rem">Henti bot</button>
+        <p class="error hidden" id="conn-err"></p>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-bottom:1rem">Fitur bot</h3>
+        <div id="features"></div>
+        <button class="btn btn-primary" id="btn-save-feat" type="button" style="margin-top:1rem">Simpan fitur</button>
+        <p class="ok hidden" id="feat-ok"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/bot.js"></script>
+</body>
+</html>

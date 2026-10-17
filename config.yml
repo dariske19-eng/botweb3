@@ -1,0 +1,25 @@
+# ============================================
+#  Drizz JadiBot Web — Konfigurasi
+# ============================================
+
+# Password admin panel (wajib tukar)
+PASSWORD_ADMIN: "digicomprs1D!"
+
+# Supabase (Project Settings → API)
+SUPABASE_URL: "https://xxxx.supabase.co"
+SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+# Service role — JANGAN dedah di frontend (server sahaja)
+SUPABASE_SERVICE_ROLE_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+
+# Port server web
+PORT: 19217
+
+# Nama brand
+SITE_NAME: "Drizz JadiBot"
+SITE_URL: "https://bot.drizzev.web.id"
+
+# Worker Baileys
+WORKER_POLL_MS: 5000
+# Path ke folder bot Drizz utama (handler.js, commands/, ...)
+# Default: folder induk (../)
+BOT_ROOT: ".."

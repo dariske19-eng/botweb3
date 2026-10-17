@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Drizz JadiBot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo"><div class="logo-mark">D</div> DRIZZ · JadiBot</div>
+    <div class="nav-links">
+      <a href="#auth">Masuk</a>
+      <a href="/admin.html">Admin</a>
+      <a class="btn btn-primary btn-sm" href="#auth">Dashboard</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="home">
+    <div>
+      <div class="badge">Digital Playground</div>
+      <h1>Jadi bot.<br><span class="accent">Dalam satu kod.</span></h1>
+      <p class="lead">
+        Claim kod 6 digit, sambungkan WhatsApp (QR atau Pairing), dan kawal fitur bot anda dari dashboard —
+        dibina dengan identiti hijau Drizz.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#auth">Mula sekarang →</a>
+        <a class="btn btn-ghost" href="https://bot.drizzev.web.id" target="_blank">Kenali Drizzev</a>
+      </div>
+    </div>
+    <div class="card card-glow">
+      <p class="muted" style="margin-bottom:0.75rem">Aliran ringkas</p>
+      <ol style="padding-left:1.2rem;line-height:1.9;color:var(--muted)">
+        <li>Daftar / login (Supabase Auth)</li>
+        <li>Tekan <strong style="color:var(--green)">Jadi Bot</strong> + masukkan kod 6 digit</li>
+        <li>Panel bot → QR atau Pairing Code</li>
+        <li>On/off fitur mengikut keperluan</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="layout" id="auth">
+    <div class="grid-2">
+      <!-- Auth -->
+      <div class="card" id="auth-card">
+        <div class="tabs">
+          <button class="tab active" data-tab="login" type="button">Login</button>
+          <button class="tab" data-tab="register" type="button">Daftar</button>
+        </div>
+        <div id="panel-login">
+          <div class="form-row">
+            <label>Email</label>
+            <input id="login-email" type="email" placeholder="anda@email.com" />
+          </div>
+          <div class="form-row">
+            <label>Password</label>
+            <input id="login-pass" type="password" placeholder="••••••••" />
+          </div>
+          <button class="btn btn-primary" id="btn-login" type="button">Masuk dashboard</button>
+          <p class="error hidden" id="login-err"></p>
+        </div>
+        <div id="panel-register" class="hidden">
+          <div class="form-row">
+            <label>Email</label>
+            <input id="reg-email" type="email" placeholder="anda@email.com" />
+          </div>
+          <div class="form-row">
+            <label>Password (min 6)</label>
+            <input id="reg-pass" type="password" placeholder="••••••••" />
+          </div>
+          <button class="btn btn-primary" id="btn-reg" type="button">Cipta akaun</button>
+          <p class="error hidden" id="reg-err"></p>
+          <p class="ok hidden" id="reg-ok"></p>
+        </div>
+      </div>
+
+      <!-- Dashboard (shown when logged in) -->
+      <div class="card hidden" id="dash-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+          <div>
+            <h2 style="font-size:1.25rem">Dashboard pembeli</h2>
+            <p class="muted" id="user-email">—</p>
+          </div>
+          <button class="btn btn-ghost btn-sm" id="btn-logout" type="button">Log keluar</button>
+        </div>
+
+        <button class="btn btn-primary" id="btn-jadi" type="button" style="width:100%;margin-bottom:1rem">
+          Jadi Bot — claim kod
+        </button>
+
+        <div id="claim-box" class="hidden" style="margin-bottom:1.25rem;padding:1rem;border:1px dashed var(--border);border-radius:12px">
+          <div class="form-row">
+            <label>Kod 6 digit</label>
+            <input id="claim-code" maxlength="6" placeholder="123456" inputmode="numeric" />
+          </div>
+          <button class="btn btn-primary btn-sm" id="btn-claim" type="button">Claim</button>
+          <p class="error hidden" id="claim-err"></p>
+        </div>
+
+        <h3 style="font-size:1rem;margin-bottom:0.75rem">Bot saya</h3>
+        <div id="bot-list" class="muted">Memuat…</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    Code · Create · Build Better — <a href="https://bot.drizzev.web.id">bot.drizzev.web.id</a>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
